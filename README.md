@@ -1,4 +1,4 @@
-# TypeScript Node Starter
+# CalarieMama Starter
 
 # Table of contents:
 
@@ -21,7 +21,7 @@ To build and run this app locally you will need a few things:
 # Getting started
 - Clone the repository
 ```
-git clone --depth=1 https://github.com/ramiljoaquin-ubidy/CalorieMama.git
+git clone --depth=1 https://github.com/ramiljoaquin/CalorieMama.git
 ```
 - Install dependencies
 ```

@@ -10,7 +10,7 @@
 - [Dependencies](#dependencies)
 	- [`dependencies`](#dependencies-1)
 	- [`devDependencies`](#devdependencies)
-- [Hackathon Starter Project](#hackathon-starter-project)
+- [CalarieMama Starter Project](#hackathon-starter-project)
 
 # Pre-reqs
 To build and run this app locally you will need a few things:
@@ -21,11 +21,11 @@ To build and run this app locally you will need a few things:
 # Getting started
 - Clone the repository
 ```
-git clone --depth=1 https://github.com/ramiljoaquin/CalorieMama.git
+git clone --depth=1 https://github.com/ramiljoaquin/RequestProcessor.git
 ```
 - Install dependencies
 ```
-cd CalorieMama
+cd RequestProcessor
 npm install
 ```
 - Configure your mongoDB server
@@ -605,8 +605,6 @@ In that file you'll find two sections:
 
 To install or update these dependencies you can use `npm install` or `npm update`.
 
-# Hackathon Starter Project
-A majority of this quick start's content was inspired or adapted from Sahat's excellent [Hackathon Starter project](https://github.com/sahat/hackathon-starter).
 
 ## License
 Copyright (c) Microsoft Corporation. All rights reserved.

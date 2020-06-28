@@ -1,17 +1,5 @@
 # TypeScript Node Starter
 
-The main purpose of this repository is to show a working Node.js API Server + front-end project and workflow for writing Node code in TypeScript.
-
-It is not a goal to be a comprehensive and definitive guide to making a TypeScript and Node project, but as a working reference maintained by the community. If you are interested in starting a new TypeScript project - check out the bootstrapping tools reference in [the TypeScript Website](https://www.typescriptlang.org/docs/home.html)
-
-
-[![Dependency Status](https://david-dm.org/Microsoft/TypeScript-Node-Starter.svg)](https://david-dm.org/Microsoft/TypeScript-Node-Starter) [![Build Status](https://travis-ci.org/Microsoft/TypeScript-Node-Starter.svg?branch=master)](https://travis-ci.org/Microsoft/TypeScript-Node-Starter)
-
-**Live Demo**: [https://typescript-node-starter.azurewebsites.net/](https://typescript-node-starter.azurewebsites.net/)
-
-![image](https://user-images.githubusercontent.com/820883/36764267-abbdb7f8-1be0-11e8-9678-2a9ea448d7f8.png)
-
-
 # Table of contents:
 
 - [Pre-reqs](#pre-reqs)
@@ -19,14 +7,6 @@ It is not a goal to be a comprehensive and definitive guide to making a TypeScri
 - [Deploying the app](#deploying-the-app)
 	- [Pre-reqs](#pre-reqs-1)
 	- [Deploying to Azure App Service](#deploying-to-azure-app-service)
-- [TypeScript + Node](#typescript--node)
-	- [Getting TypeScript](#getting-typescript)
-	- [Project Structure](#project-structure)
-	- [Building the project](#building-the-project)
-	- [Type Definition (`.d.ts`) Files](#type-definition-dts-files)
-	- [Debugging](#debugging)
-	- [Testing](#testing)
-	- [ESLint](#eslint)
 - [Dependencies](#dependencies)
 	- [`dependencies`](#dependencies-1)
 	- [`devDependencies`](#devdependencies)
@@ -41,11 +21,11 @@ To build and run this app locally you will need a few things:
 # Getting started
 - Clone the repository
 ```
-git clone --depth=1 https://github.com/Microsoft/TypeScript-Node-Starter.git <project_name>
+git clone --depth=1 https://github.com/ramiljoaquin-ubidy/CalorieMama.git
 ```
 - Install dependencies
 ```
-cd <project_name>
+cd CalorieMama
 npm install
 ```
 - Configure your mongoDB server
@@ -78,6 +58,49 @@ Or, if you're using VS Code, you can use `cmd + shift + b` to run the default bu
 Throughout the README We will try to call out specific places where VS Code really shines or where this project has been setup to take advantage of specific features.
 
 Finally, navigate to `http://localhost:3000` and you should see the template being served and rendered locally!
+
+# Request Cheat Sheet
+GET something from a JSON REST API
+```
+var options = {
+    uri: 'https://api.github.com/user/repos',
+    qs: {
+        access_token: 'xxxxx xxxxx' // -> uri + '?access_token=xxxxx%20xxxxx'
+    },
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response
+};
+ 
+rp(options)
+    .then(function (repos) {
+        console.log('User has %d repos', repos.length);
+    })
+    .catch(function (err) {
+        // API call failed...
+    });
+```
+POST data to a JSON REST API
+Set option.body to your data and json: true to encode the body as JSON. See below for HTML forms.
+```
+var options = {
+    method: 'POST',
+    uri: 'http://api.posttestserver.com/post',
+    body: {
+        some: 'payload'
+    },
+    json: true // Automatically stringifies the body to JSON
+};
+ 
+rp(options)
+    .then(function (parsedBody) {
+        // POST succeeded...
+    })
+    .catch(function (err) {
+        // POST failed...
+    });
+```
 
 # Deploying the app
 There are many ways to deploy an Node app, and in general, nothing about the deployment process changes because you're using TypeScript.
@@ -172,22 +195,6 @@ This deployment is not the fastest option (but it is the easiest!). We are liter
 This setting determines which database to point to.
 If you haven't created a cloud database yet, see [the setup instructions](#mlab).
 13. Profit! If everything worked you should see a page that looks like this: [TypeScript Node Starter Demo Site](https://typescript-node-starter.azurewebsites.net/)
-
-### Troubleshooting failed deployments
-Deployment can fail for various reasons, if you get stuck with a page that says *Service Unavailable* or some other error, [open an issue](https://github.com/Microsoft/TypeScript-Node-Starter/issues/new) and I'll try to help you resolve the problems.
-
-# TypeScript + Node
-In the next few sections I will call out everything that changes when adding TypeScript to an Express project.
-Note that all of this has already been setup for this project, but feel free to use this as a reference for converting other Node.js projects to TypeScript.
-
-## Getting TypeScript
-TypeScript itself is simple to add to any project with `npm`.
-```
-npm install -D typescript
-```
-If you're using VS Code then you're good to go!
-VS Code will detect and use the TypeScript version you have installed in your `node_modules` folder.
-For other editors, make sure you have the corresponding [TypeScript plugin](http://www.typescriptlang.org/index.html#download-links).
 
 ## Project Structure
 The most obvious difference in a TypeScript + Node project is the folder structure.

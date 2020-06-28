@@ -21,11 +21,11 @@ To build and run this app locally you will need a few things:
 # Getting started
 - Clone the repository
 ```
-git clone --depth=1 https://github.com/ramiljoaquin/RequestProcessor.git
+git clone --depth=1 https://github.com/ramiljoaquin/FoodService.git
 ```
 - Install dependencies
 ```
-cd RequestProcessor
+cd FoodService
 npm install
 ```
 - Configure your mongoDB server

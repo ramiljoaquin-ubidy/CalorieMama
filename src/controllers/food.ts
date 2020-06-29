@@ -6,7 +6,7 @@ fetch(base64)
 .then(res => res.blob())
 .then(blob => {
   // const data = new FormData();
-  const file = new File([blob], "filename.jpeg");
+  const file = new File([blob], "apple.jpg");
   data.append("image", file);
 });
   
@@ -21,8 +21,7 @@ export const foodRecognition = async () => {
     headers: {
       ...data.getHeaders()
     },
-    data : data,
-    json: true // Automatically stringifies the body to JSON
+    data : data
 };
  
 rp.post(options)
